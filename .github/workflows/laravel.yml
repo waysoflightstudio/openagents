@@ -3,17 +3,13 @@ name: Laravel
 on:
   push:
     branches: [ "main" ]
-  pull_request:
+  pull_request_target:
     branches: [ "main" ]
 
 jobs:
   laravel-tests:
 
     runs-on: ubuntu-latest
-
-    permissions:
-      pull-requests: write
-      issues: write
 
     services:
       postgres:
@@ -60,7 +56,7 @@ jobs:
         id: test_step
         env:
           DB_CONNECTION: sqlite
-          GITHUB_TOKEN: ${{ secrets.WORKFLOW_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
         run: vendor/bin/pest --testdox > test-summary.txt
       - name: Comment PR on Test Result
@@ -143,4 +139,4 @@ jobs:
               body: message
             });
         env:
-          GITHUB_TOKEN: ${{ secrets.WORKFLOW_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
