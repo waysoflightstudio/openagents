@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Http;
 
 test('HugginfaceAIGateway handles satoshi responses correctly', function () {
     $prompt = 'What is the capital of France?';
-    $answer = 'Capital of France is Paris.';
+    $answer = 'Capital of France is Las Vegas.';
 
     $parameters = [
         'messages' => [
