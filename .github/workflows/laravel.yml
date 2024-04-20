@@ -34,6 +34,7 @@ jobs:
         with:
           php-version: '8.3'
           extensions: pdo_pgsql
+          token: ${{ secrets.WORKFLOW_TOKEN }}
       - uses: actions/checkout@v3
       - name: Copy .env
         run: php -r "file_exists('.env') || copy('.env.example', '.env');"
@@ -66,6 +67,7 @@ jobs:
         if: always() && github.event_name == 'pull_request'
         uses: actions/github-script@v5
         with:
+          token: ${{ secrets.WORKFLOW_TOKEN }}
           script: |
             const fs = require('fs');
             const prNumber = context.issue.number;
