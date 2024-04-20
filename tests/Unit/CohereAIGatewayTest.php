@@ -1,5 +1,5 @@
 <?php
-
+// Test PR
 declare(strict_types=1);
 
 use App\AI\CohereAIGateway;
