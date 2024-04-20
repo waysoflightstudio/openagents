@@ -60,7 +60,7 @@ jobs:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
         run: vendor/bin/pest --testdox > test-summary.txt
       - name: Comment PR on Test Result
-        if: always() && github.event_name == 'pull_request'
+        if: always() && github.event_name == 'pull_request_target'
         uses: actions/github-script@v5
         with:
           script: |
