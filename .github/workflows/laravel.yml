@@ -60,7 +60,7 @@ jobs:
         id: test_step
         env:
           DB_CONNECTION: sqlite
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.WORKFLOW_TOKEN }}
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
         run: vendor/bin/pest --testdox > test-summary.txt
       - name: Comment PR on Test Result
@@ -143,4 +143,4 @@ jobs:
               body: message
             });
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.WORKFLOW_TOKEN }}
