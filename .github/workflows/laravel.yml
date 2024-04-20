@@ -125,7 +125,7 @@ jobs:
                 // Join the failing tests with two new lines and wrap in a code block for markdown
                 message = `❌ Tests failed. Below are the details:\n\`\`\`\n${failingTests.join('\n\n')}\n\`\`\``;
               } else if (passingTests > 0) {
-                message = "✅ All tests passed! (passing: ${passingTests}, failing: ${failingCount})";
+                message = `✅ All tests passed! (passing: ${passingTests}, failing: ${failingCount})`;
               } else {
                 message = "⚠️ Error running tests. Logs:\n```\n" + testSummary + "\n```";
               }
