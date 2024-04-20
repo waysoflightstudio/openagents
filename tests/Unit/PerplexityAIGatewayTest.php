@@ -22,7 +22,7 @@ test('PerplexityAIGateway handles perplexity responses correctly', function () {
         [
             'choices' => [[
                 'delta' => [
-                    'content' => $answer,
+                    'content' => $answer . '???',
                 ],
             ]],
             'usage' => [
