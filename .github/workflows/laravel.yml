@@ -1,5 +1,8 @@
 name: Laravel
 
+permissions:
+  actions: write
+
 on:
   push:
     branches: [ "main" ]
