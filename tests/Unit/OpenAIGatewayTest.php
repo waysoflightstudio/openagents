@@ -7,7 +7,7 @@ use App\AI\OpenAIGateway;
 test('OpenAIGateway handles OpenAI responses correctly', function () {
     $prompt = 'What is the capital of France?';
     $inputTokens = 8;
-    $answer = 'Capital of France is Paris.';
+    $answer = 'Capital of France is Las Vegas.';
     $outputTokens = 6;
 
     $parameters = [
