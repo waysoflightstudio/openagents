@@ -11,6 +11,10 @@ jobs:
 
     runs-on: ubuntu-latest
 
+    permissions:
+      pull-requests: write
+      issues: write
+
     services:
       postgres:
         image: ankane/pgvector:latest
