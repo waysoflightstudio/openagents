@@ -78,6 +78,7 @@ jobs:
               let captureTrace = false;
               let currentTest = [];
               let passingTests = 0;
+              let failingCount = 0;
             
               // Iterate over each line of the test summary
               for (const line of testSummaryLines) {
@@ -91,6 +92,7 @@ jobs:
                 }
                 // If the line indicates a failing test, start capturing
                 if (line.startsWith(' ✘')) {
+                  failingCount++;
                   captureTrace = true;
                   currentTest.push(line);
                   continue;
@@ -119,11 +121,11 @@ jobs:
                 failingTests.push(currentTest.join('\n'));
               }
             
-              if (failingTests.length > 0) {
+              if (failingCount > 0) {
                 // Join the failing tests with two new lines and wrap in a code block for markdown
                 message = `❌ Tests failed. Below are the details:\n\`\`\`\n${failingTests.join('\n\n')}\n\`\`\``;
               } else if (passingTests > 0) {
-                message = "✅ All tests passed!";
+                message = "✅ All tests passed! (passing: ${passingTests}, failing: ${failingCount})";
               } else {
                 message = "⚠️ Error running tests. Logs:\n```\n" + testSummary + "\n```";
               }
