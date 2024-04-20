@@ -1,8 +1,5 @@
 name: Laravel
 
-permissions:
-  actions: write
-
 on:
   push:
     branches: [ "main" ]
@@ -13,6 +10,9 @@ jobs:
   laravel-tests:
 
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
 
     services:
       postgres:
