@@ -130,13 +130,7 @@ jobs:
             } else {
               message = "⚠️ No test summary file found.";
             }
-            
-            // Create the PR comment
-            github.rest.issues.createComment({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              issue_number: prNumber,
-              body: message
-            });
+            console.log(message);
+            core.setFailed(message);
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
